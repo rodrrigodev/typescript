@@ -39,3 +39,23 @@ let car: any = 'BMW'
 // console.log(car)
 car = {car: 'BMW', year: 2015}
 // console.log(car)
+
+//functions
+function returnName():string{
+    return personalName
+}
+// console.log(returnName())
+
+function sayHi():void{
+    // console.log('Hello!')
+}
+sayHi()
+
+function sum(x: number, y:number){
+    return x +y
+}
+// console.log(sum(38.52, 154.5))
+
+let calc: (x:number, y:number)=> number
+calc = sum
+// console.log(calc(12,45))

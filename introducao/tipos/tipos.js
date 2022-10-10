@@ -34,3 +34,19 @@ let car = 'BMW';
 // console.log(car)
 car = { car: 'BMW', year: 2015 };
 // console.log(car)
+//functions
+function returnName() {
+    return personalName;
+}
+// console.log(returnName())
+function sayHi() {
+    // console.log('Hello!')
+}
+sayHi();
+function sum(x, y) {
+    return x + y;
+}
+// console.log(sum(38.52, 154.5))
+let calc;
+calc = sum;
+// console.log(calc(12,45))
