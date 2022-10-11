@@ -85,4 +85,17 @@ const product = {
         }
     }
 };
-// console.log(product.validateProduct())
+const contact1 = {
+    nameUser: 'Alex',
+    tel1: '12345678910',
+    tel2: null
+};
+// console.log(contact1)
+let nullValue = null; //typy = any
+let bankAccount = {
+    balance: 3416,
+    cashDeposit(value) {
+        return value + this.balance;
+    }
+};
+console.log(bankAccount.cashDeposit(2000));

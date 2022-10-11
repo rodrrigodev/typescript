@@ -109,3 +109,35 @@ const product = {
     }
 }
 // console.log(product.validateProduct())
+
+
+type contact = {
+    nameUser: string,
+    tel1: string,
+    tel2: string | null
+}
+
+const contact1: contact = {
+    nameUser: 'Alex',
+    tel1: '12345678910',
+    tel2: null
+}
+// console.log(contact1)
+
+let nullValue = null  //typy = any
+
+//challenge
+
+type BankAccount ={
+    balance: number,
+    cashDeposit: (value:number) => number
+}
+
+let bankAccount: BankAccount = {
+    balance: 3416,
+    cashDeposit(value){
+        return value + this.balance
+    }
+}
+
+console.log(bankAccount.cashDeposit(2000))
