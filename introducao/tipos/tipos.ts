@@ -59,3 +59,53 @@ function sum(x: number, y:number){
 let calc: (x:number, y:number)=> number
 calc = sum
 // console.log(calc(12,45))
+
+//object
+let user: {nameUser: string, age: number} = {
+    nameUser: 'Rodrigo', age: 24
+}
+// console.log(user
+
+//alias
+type worker = {
+    workers: string[],
+    time: (hours:number) => string
+}
+
+let workers: worker = {
+    workers: ['Rodrigo', 'Tiago', 'Breno'],
+    time(hour: number): string{
+        if(hour < 8){
+            return 'Normal'
+        }else{
+            return 'Atrasado'
+        }
+    }
+}
+//console.log(workers.time(7))
+
+
+
+//union types
+let note: number | string = '10'
+// console.log(`Minha nota é ${note}`)
+
+
+//never
+function fault(msg: string):never{
+    throw new Error(msg)
+}
+
+const product = {
+    productName: 'Soap',
+    price: -10,
+    validateProduct(){
+        if(!this.productName || this.productName.trim().length === 0){
+            fault('Precisa ter um nomme!')
+        }
+        if(this.price <=0){
+            fault('Preço inválido!')
+        }
+    }
+}
+// console.log(product.validateProduct())

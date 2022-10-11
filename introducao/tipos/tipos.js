@@ -50,3 +50,39 @@ function sum(x, y) {
 let calc;
 calc = sum;
 // console.log(calc(12,45))
+//object
+let user = {
+    nameUser: 'Rodrigo', age: 24
+};
+let workers = {
+    workers: ['Rodrigo', 'Tiago', 'Breno'],
+    time(hour) {
+        if (hour < 8) {
+            return 'Normal';
+        }
+        else {
+            return 'Atrasado';
+        }
+    }
+};
+//console.log(workers.time(7))
+//union types
+let note = '10';
+// console.log(`Minha nota é ${note}`)
+//never
+function fault(msg) {
+    throw new Error(msg);
+}
+const product = {
+    productName: 'Soap',
+    price: -10,
+    validateProduct() {
+        if (!this.productName || this.productName.trim().length === 0) {
+            fault('Precisa ter um nomme!');
+        }
+        if (this.price <= 0) {
+            fault('Preço inválido!');
+        }
+    }
+};
+// console.log(product.validateProduct())
