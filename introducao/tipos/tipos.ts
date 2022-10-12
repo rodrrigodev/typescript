@@ -140,4 +140,4 @@ let bankAccount: BankAccount = {
     }
 }
 
-console.log(bankAccount.cashDeposit(2000))
+// console.log(bankAccount.cashDeposit(2000))

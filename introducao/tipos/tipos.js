@@ -98,4 +98,4 @@ let bankAccount = {
         return value + this.balance;
     }
 };
-console.log(bankAccount.cashDeposit(2000));
+// console.log(bankAccount.cashDeposit(2000))
