@@ -31,8 +31,8 @@ const {firstName, experience} = scientist
 
 fetch('https://swapi.dev/api/people/1')
 .then(result => result.json())
-.then(data=> data.films)
+.then(data => data.films)
 .then(film => fetch(film[0]))
-.then(data=> data.json())
-.then(film=>console.log(film.title))
-.catch(error=> console.log(`Houve um erro durante a sua solicitação ${error}`))
+.then(data => data.json())
+.then(film =>console.log(film.title))
+.catch(error => console.log(`Houve um erro durante a sua solicitação ${error}`))
