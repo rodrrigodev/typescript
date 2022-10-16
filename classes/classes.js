@@ -76,5 +76,35 @@ class Dog extends Animal {
 }
 const cat = new Animal('Tom', 5, 23);
 const dog = new Dog('Max', 2, 100, 'Branco');
-cat.CheckAnimal();
-dog.CheckAnimal();
+// cat.CheckAnimal()
+// dog.CheckAnimal()
+class Car {
+    constructor(marca, modelo, velocidadeMaxima = 200) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.velocidadeMaxima = velocidadeMaxima;
+        this.currentSpeed = 0;
+    }
+    ChangeSpeed(delta) {
+        const newspeed = this.currentSpeed + delta;
+        const validSpeed = newspeed >= 0 && newspeed <= this.velocidadeMaxima;
+        if (validSpeed) {
+            this.currentSpeed = newspeed;
+        }
+        else {
+            this.currentSpeed = delta > 0 ? this.velocidadeMaxima : 0;
+        }
+        return this.currentSpeed;
+    }
+    Acelerar() {
+        return this.ChangeSpeed(5);
+    }
+    Frear() {
+        return this.ChangeSpeed(-5);
+    }
+}
+const cart = new Car('Ford', '2009', 192);
+// Array(20).fill(0).forEach(()=> cart.Acelerar())
+// console.log(cart.Acelerar())
+// Array(10).fill(0).forEach(()=> cart.Frear())
+// console.log(cart.Frear())
