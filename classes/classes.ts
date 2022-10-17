@@ -172,3 +172,77 @@ Array(20).fill(0).forEach(()=> f40.SpeedUp())
 // console.log(f40.SpeedUp())
 Array(8).fill(0).forEach(()=> f40.Brake())
 // console.log(f40.Brake())
+
+
+//Getters & Setters
+
+class Person{
+
+    private _age: number = 0
+
+    get age():number{
+        return this._age
+    }
+
+    set age(value:number){
+            if(value >=18){
+                this._age = value
+            }else{
+                throw 'Você não tem idade o suficiente!, Retorne no próximo ano!'
+            }
+    }
+}
+
+const person1 = new Person
+
+// console.log(person1.age)
+// person1.age = 18
+// console.log(person1.age)
+// person1.age = 17
+
+class Mathmatics{
+
+    static PI: number = 3.1416
+
+    static circleArea(ray: number):number{
+        return this.PI * ray * ray
+    }
+
+}
+
+// console.log(Mathmatics.circleArea(4))
+
+
+abstract class Calculate{
+
+    protected result: number = 0
+
+    abstract execute(...numbers: number[]):void
+
+    getResult():number{
+        return this.result
+    }
+}
+
+class Plus extends Calculate{
+
+    execute(...numbers: number[]): void {
+        this.result = numbers.reduce((t, a)=> t + a)
+    }
+}
+
+class Multiply extends Calculate{
+
+    execute(...numbers: number[]): void {
+        this.result = numbers.reduce((t, a)=> t * a)
+    }
+
+}
+
+const plus = new Plus()
+plus.execute(2, 4, 3)
+console.log(plus.getResult())
+
+const multi = new Multiply()
+multi.execute(2, 4, 3)
+console.log(multi.getResult())

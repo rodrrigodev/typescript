@@ -79,20 +79,20 @@ const dog = new Dog('Max', 2, 100, 'Branco');
 // cat.CheckAnimal()
 // dog.CheckAnimal()
 class Car {
-    constructor(marca, modelo, velocidadeMaxima = 200) {
+    constructor(marca, model, maximumSpeed = 200) {
         this.marca = marca;
-        this.modelo = modelo;
-        this.velocidadeMaxima = velocidadeMaxima;
+        this.model = model;
+        this.maximumSpeed = maximumSpeed;
         this.currentSpeed = 0;
     }
     ChangeSpeed(delta) {
         const newspeed = this.currentSpeed + delta;
-        const validSpeed = newspeed >= 0 && newspeed <= this.velocidadeMaxima;
+        const validSpeed = newspeed >= 0 && newspeed <= this.maximumSpeed;
         if (validSpeed) {
             this.currentSpeed = newspeed;
         }
         else {
-            this.currentSpeed = delta > 0 ? this.velocidadeMaxima : 0;
+            this.currentSpeed = delta > 0 ? this.maximumSpeed : 0;
         }
         return this.currentSpeed;
     }
@@ -109,8 +109,8 @@ const cart = new Car('Ford', '2009', 192);
 // Array(10).fill(0).forEach(()=> cart.Brake())
 // console.log(cart.Brake())
 class Ferrari extends Car {
-    constructor(modelo, velocidadeMaxima) {
-        super('Ferrari', modelo, velocidadeMaxima);
+    constructor(model, maximumSpeed) {
+        super('Ferrari', model, maximumSpeed);
     }
     SpeedUp() {
         return this.ChangeSpeed(20);
@@ -121,6 +121,59 @@ class Ferrari extends Car {
 }
 const f40 = new Ferrari('f40', 324);
 Array(20).fill(0).forEach(() => f40.SpeedUp());
-console.log(f40.SpeedUp());
+// console.log(f40.SpeedUp())
 Array(8).fill(0).forEach(() => f40.Brake());
-console.log(f40.Brake());
+// console.log(f40.Brake())
+//Getters & Setters
+class Person {
+    constructor() {
+        this._age = 0;
+    }
+    get age() {
+        return this._age;
+    }
+    set age(value) {
+        if (value >= 18) {
+            this._age = value;
+        }
+        else {
+            throw 'Você não tem idade o suficiente!, Retorne no próximo ano!';
+        }
+    }
+}
+const person1 = new Person;
+// console.log(person1.age)
+// person1.age = 18
+// console.log(person1.age)
+// person1.age = 17
+class Mathmatics {
+    static circleArea(ray) {
+        return this.PI * ray * ray;
+    }
+}
+Mathmatics.PI = 3.1416;
+// console.log(Mathmatics.circleArea(4))
+class Calculate {
+    constructor() {
+        this.result = 0;
+    }
+    getResult() {
+        return this.result;
+    }
+}
+class Plus extends Calculate {
+    execute(...numbers) {
+        this.result = numbers.reduce((t, a) => t + a);
+    }
+}
+class Multiply extends Calculate {
+    execute(...numbers) {
+        this.result = numbers.reduce((t, a) => t * a);
+    }
+}
+const plus = new Plus();
+plus.execute(2, 4, 3);
+console.log(plus.getResult());
+const multi = new Multiply();
+multi.execute(2, 4, 3);
+console.log(multi.getResult());
