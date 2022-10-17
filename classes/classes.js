@@ -96,15 +96,31 @@ class Car {
         }
         return this.currentSpeed;
     }
-    Acelerar() {
+    SpeedUp() {
         return this.ChangeSpeed(5);
     }
-    Frear() {
+    Brake() {
         return this.ChangeSpeed(-5);
     }
 }
 const cart = new Car('Ford', '2009', 192);
-// Array(20).fill(0).forEach(()=> cart.Acelerar())
-// console.log(cart.Acelerar())
-// Array(10).fill(0).forEach(()=> cart.Frear())
-// console.log(cart.Frear())
+// Array(20).fill(0).forEach(()=> cart.SpeedUp())
+// console.log(cart.SpeedUp())
+// Array(10).fill(0).forEach(()=> cart.Brake())
+// console.log(cart.Brake())
+class Ferrari extends Car {
+    constructor(modelo, velocidadeMaxima) {
+        super('Ferrari', modelo, velocidadeMaxima);
+    }
+    SpeedUp() {
+        return this.ChangeSpeed(20);
+    }
+    Brake() {
+        return this.ChangeSpeed(-20);
+    }
+}
+const f40 = new Ferrari('f40', 324);
+Array(20).fill(0).forEach(() => f40.SpeedUp());
+console.log(f40.SpeedUp());
+Array(8).fill(0).forEach(() => f40.Brake());
+console.log(f40.Brake());

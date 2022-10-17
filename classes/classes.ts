@@ -120,33 +120,55 @@ class Car{
     
     private currentSpeed: number = 0
 
-    constructor(public marca: string, public modelo: string, private velocidadeMaxima: number = 200){
+    constructor(public marca: string, public model: string, private maximumSpeed: number = 200){
 
     }
 
-    private ChangeSpeed(delta:number):number{
+    protected ChangeSpeed(delta:number):number{
         const newspeed = this.currentSpeed + delta
-        const validSpeed = newspeed >= 0 && newspeed <= this.velocidadeMaxima
+        const validSpeed = newspeed >= 0 && newspeed <= this.maximumSpeed
         if(validSpeed){
             this.currentSpeed = newspeed
         }else{
-            this.currentSpeed = delta > 0 ? this.velocidadeMaxima : 0
+            this.currentSpeed = delta > 0 ? this.maximumSpeed : 0
         }
         return this.currentSpeed
     }
 
-    Acelerar():number{
+    SpeedUp():number{
         return this.ChangeSpeed(5)
     }
 
-    Frear():number{
+    Brake():number{
         return this.ChangeSpeed(-5)
     }
 }
 
 const cart = new Car('Ford', '2009', 192)
 
-// Array(20).fill(0).forEach(()=> cart.Acelerar())
-// console.log(cart.Acelerar())
-// Array(10).fill(0).forEach(()=> cart.Frear())
-// console.log(cart.Frear())
+// Array(20).fill(0).forEach(()=> cart.SpeedUp())
+// console.log(cart.SpeedUp())
+// Array(10).fill(0).forEach(()=> cart.Brake())
+// console.log(cart.Brake())
+
+
+class Ferrari extends Car{
+
+    constructor(model:string, maximumSpeed:number){
+        super('Ferrari', model, maximumSpeed)
+    }
+
+    SpeedUp():number{
+        return this.ChangeSpeed(20)
+    }
+
+    Brake():number{
+        return this.ChangeSpeed(-20)
+    }
+}
+
+const f40 = new Ferrari('f40', 324)
+Array(20).fill(0).forEach(()=> f40.SpeedUp())
+// console.log(f40.SpeedUp())
+Array(8).fill(0).forEach(()=> f40.Brake())
+// console.log(f40.Brake())
