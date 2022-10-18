@@ -173,7 +173,16 @@ class Multiply extends Calculate {
 }
 const plus = new Plus();
 plus.execute(2, 4, 3);
-console.log(plus.getResult());
+// console.log(plus.getResult())
 const multi = new Multiply();
 multi.execute(2, 4, 3);
-console.log(multi.getResult());
+// console.log(multi.getResult())
+class plane {
+    constructor(model, prefix) {
+        this.prefix = prefix;
+        this.model = model;
+    }
+}
+const turboHelice = new plane('Tu-114', 'PT-ABC');
+// turboHelice.model = 'Abc'
+// console.log(turboHelice)

@@ -241,8 +241,22 @@ class Multiply extends Calculate{
 
 const plus = new Plus()
 plus.execute(2, 4, 3)
-console.log(plus.getResult())
+// console.log(plus.getResult())
 
 const multi = new Multiply()
 multi.execute(2, 4, 3)
-console.log(multi.getResult())
+// console.log(multi.getResult())
+
+class plane{
+    
+    public readonly model: string // Define que somente podera ler, sem a possibilidade de mudanca de dados
+
+    constructor(model:string, public readonly prefix: string){
+        this.model = model
+    }
+
+}
+
+const turboHelice = new plane('Tu-114', 'PT-ABC')
+// turboHelice.model = 'Abc'
+// console.log(turboHelice)
