@@ -37,8 +37,8 @@ class Client implements Human{
 
 const newClient = new Client()
 newClient.name = "Han"
-newClient.hi("Ben")
-console.log(newClient)
+// newClient.hi("Ben")
+// console.log(newClient)
 
 
 
@@ -54,4 +54,4 @@ const power: Power = (a:number, b:number):number=>{
     // return Array(b).fill(a).reduce((t, a)=> t * a)
 }
 
-console.log(power(55, 4))
+// console.log(power(55, 4))
